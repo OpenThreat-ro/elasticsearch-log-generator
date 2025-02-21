@@ -1,5 +1,3 @@
-### Descriere pentru Docker Hub și GitHub
-
 ---
 
 # **Python Log Generator for Elasticsearch (by OpenThreat)**
