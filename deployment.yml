@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-generator
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: log-generator
+  template:
+    metadata:
+      labels:
+        app: log-generator
+    spec:
+      containers:
+      - name: log-generator
+        image: razvan1/elasticsearch-log-generator:latest
+        env:
+        - name: ELASTICSEARCH_HOST
+          value: "http://elasticsearch.default.svc.cluster.local:9200"
+        - name: ELASTICSEARCH_INDEX
+          value: "k8s-logs"
